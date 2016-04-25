@@ -1,0 +1,18 @@
+<%= shoppe_stripe_javascript %>
+
+<h2>Make your payment</h2>
+
+<%= form_tag nil, class: "stripeForm" do %>
+  <%= hidden_field_tag "stripe_token", nil, "data-stripe" => "token" %>
+  <dl>
+    <dt><%= label_tag 'card_number' %></dt>
+    <dd><%= text_field_tag 'card_number', nil, name: nil, "data-stripe" => "number" %></dd>
+    <dt><%= label_tag 'expiry_month' %></dt>
+    <dd><%= text_field_tag 'expiry_month', nil, name: nil, "data-stripe" => "exp-month" %></dd>
+    <dt><%= label_tag 'expiry_year' %></dt>
+    <dd><%= text_field_tag 'expiry_year', nil, name: nil, "data-stripe" => "exp-year" %></dd>
+    <dt><%= label_tag 'security_code' %></dt>
+    <dd><%= text_field_tag 'security_code', nil, name: nil, "data-stripe" => "cvc" %></dd>
+    <dd><%= submit_tag "Continue" %></dd>
+  </dl>
+<% end %>
